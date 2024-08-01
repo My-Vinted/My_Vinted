@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinted Articles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .article {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .article img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mes Articles Vinted</h1>
+        <div id="articles"></div>
+    </div>
+
+    <script>
+        const articles = [
+            {
+                title: 'Article 1',
+                image: 'https://via.placeholder.com/150',
+                link: 'https://www.vinted.be/member/63167023-manuel/article-1'
+            },
+            {
+                title: 'Article 2',
+                image: 'https://via.placeholder.com/150',
+                link: 'https://www.vinted.be/member/63167023-manuel/article-2'
+            }
+            // Ajoutez plus d'articles ici
+        ];
+
+        const articlesContainer = document.getElementById('articles');
+
+        articles.forEach(article => {
+            const articleElement = document.createElement('div');
+            articleElement.className = 'article';
+
+            articleElement.innerHTML = `
+                <h2>${article.title}</h2>
+                <a href="${article.link}" target="_blank">
+                    <img src="${article.image}" alt="${article.title}">
+                </a>
+                <p><a href="${article.link}" target="_blank">Voir l'article</a></p>
+            `;
+
+            articlesContainer.appendChild(articleElement);
+        });
+    </script>
+</body>
+</html>
